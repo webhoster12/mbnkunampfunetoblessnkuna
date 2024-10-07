@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPFUNETO BLESS NKUNA - CV Portfolio</title>
+    <style>
+        /* Reset and Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: #ecf0f1;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 250px;
+            background-color: #1a252f;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #e74c3c;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #bdc3c7;
+            padding: 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+            flex: 1;
+            background-color: rgba(44, 62, 80, 0.9);
+            overflow-y: auto;
+        }
+
+        .main-content section {
+            display: none;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #2c3e50;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .main-content section.active {
+            display: block;
+        }
+
+        .main-content h2 {
+            margin-bottom: 15px;
+            color: #e74c3c;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 5px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #bdc3c7;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        input, textarea {
+            background-color: #34495e;
+            color: #ecf0f1;
+        }
+
+        button {
+            background-color: #27ae60;
+            color: #fff;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #219150;
+        }
+
+        /* Skills List */
+        #skillList {
+            list-style-type: none;
+            margin-top: 10px;
+        }
+
+        #skillList li {
+            background-color: #16a085;
+            padding: 8px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #skillList li button {
+            background-color: #c0392b;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 3px;
+        }
+
+        /* Overview Styles */
+        #overviewContent {
+            line-height: 1.6;
+        }
+
+        /* Download Button */
+        #downloadBtn {
+            background-color: #2980b9;
+            margin-top: 20px;
+        }
+
+        #downloadBtn:hover {
+            background-color: #1f6391;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .main-content {
+                margin-left: 220px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h2>MPFUNETO BLESS NKUNA</h2>
+        <a href="#" data-section="home" class="active">Home</a>
+        <a href="#" data-section="personal">Personal Information</a>
+        <a href="#" data-section="education">Education</a>
+        <a href="#" data-section="work">Work Experience</a>
+        <a href="#" data-section="skills">Skills</a>
+        <a href="#" data-section="projects">Projects</a>
+        <a href="#" data-section="contact">Contact</a>
+        <a href="#" data-section="overview">Overview</a>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="active">
+            <h2>Welcome</h2>
+            <p>Hello! I'm MPFUNETO BLESS NKUNA, a passionate developer with a love for creating engaging and efficient solutions. Explore my CV to learn more about my background, skills, and projects.</p>
+        </section>
+
+        <!-- Personal Information Section -->
+        <section id="personal">
+            <h2>Personal Information</h2>
+            <form id="personalForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone">
+
+                <label for="bio">Short Bio:</label>
+                <textarea id="bio" rows="4"></textarea>
+
+                <button type="submit">Save</button>
+            </form>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2>Education</h2>
+            <form id="educationForm">
+                <label for="degree">Degree:</label>
+                <input type="text" id="degree" required>
+
+                <label for="institution">Institution:</label>
+                <input type="text" id="institution" required>
+
+                <label for="year">Year:</label>
+                <input type="text" id="year">
+
+                <button type="submit">Save</button>
+            </form>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section id="work">
+            <h2>Work Experience</h2>
+            <form id="workForm">
+                <label for="jobTitle">Job Title:</label>
+                <input type="text" id="jobTitle" required>
+
+                <label for="company">Company:</label>
+                <input type="text" id="company" required>
+
+                <label for="workYear">Year:</label>
+                <input type="text" id="workYear">
+
+                <button type="submit">Save</button>
+            </form>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <form id="skillsForm">
+                <label for="skill">Add Skill:</label>
+                <input type="text" id="skill">
+                <button type="button" id="addSkill">Add</button>
+                <ul id="skillList"></ul>
+            </form>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <form id="projectsForm">
+                <label for="projectName">Project Name:</label>
+                <input type="text" id="projectName" required>
+
+                <label for="projectDescription">Description:</label>
+                <textarea id="projectDescription" rows="4"></textarea>
+
+                <button type="submit">Save</button>
+            </form>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contactForm">
+                <label for="contactName">Name:</label>
+                <input type="text" id="contactName" required>
+
+                <label for="contactEmail">Email:</label>
+                <input type="email" id="contactEmail" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" rows="4"></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+        <!-- Overview Section -->
+        <section id="overview">
+            <h2>Overview</h2>
+            <div id="overviewContent">
+                <!-- Overview content will be populated here -->
+            </div>
+            <button id="downloadBtn">Download CV</button>
+        </section>
+    </div>
+
+    <script>
+        // Navigation Handling
+        const navLinks = document.querySelectorAll('.sidebar a');
+        const sections = document.querySelectorAll('.main-content section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = link.getAttribute('data-section');
+
+                // Remove active class from all links
+                navLinks.forEach(l => l.classList.remove('active'));
+                // Add active class to the clicked link
+                link.classList.add('active');
+
+                // Hide all sections
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Show the target section
+                document.getElementById(target).classList.add('active');
+
+                if (target === 'overview') {
+                    populateOverview();
+                }
+            });
+        });
+
+        // Personal Information Handling
+        const personalForm = document.getElementById('personalForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const bioInput = document.getElementById('bio');
+
+        personalForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const personalInfo = {
+                name: nameInput.value,
+                email: emailInput.value,
+                phone: phoneInput.value,
+                bio: bioInput.value
+            };
+            localStorage.setItem('personalInfo', JSON.stringify(personalInfo));
+            alert('Personal information saved!');
+        });
+
+        // Education Handling
+        const educationForm = document.getElementById('educationForm');
+        const degreeInput = document.getElementById('degree');
+        const institutionInput = document.getElementById('institution');
+        const yearInput = document.getElementById('year');
+
+        educationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const education = {
+                degree: degreeInput.value,
+                institution: institutionInput.value,
+                year: yearInput.value
+            };
+            localStorage.setItem('education', JSON.stringify(education));
+            alert('Education information saved!');
+        });
+
+        // Work Experience Handling
+        const workForm = document.getElementById('workForm');
+        const jobTitleInput = document.getElementById('jobTitle');
+        const companyInput = document.getElementById('company');
+        const workYearInput = document.getElementById('workYear');
+
+        workForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const work = {
+                jobTitle: jobTitleInput.value,
+                company: companyInput.value,
+                year: workYearInput.value
+            };
+            localStorage.setItem('workExperience', JSON.stringify(work));
+            alert('Work experience saved!');
+        });
+
+        // Skills Handling
+        const skillsForm = document.getElementById('skillsForm');
+        const skillInput = document.getElementById('skill');
+        const addSkillBtn = document.getElementById('addSkill');
+        const skillList = document.getElementById('skillList');
+
+        addSkillBtn.addEventListener('click', () => {
+            const skill = skillInput.value.trim();
+            if (skill) {
+                let skills = JSON.parse(localStorage.getItem('skills')) || [];
+                skills.push(skill);
+                localStorage.setItem('skills', JSON.stringify(skills));
+                renderSkills();
+                skillInput.value = '';
+            }
+        });
+
+        function renderSkills() {
+            skillList.innerHTML = '';
+            const skills = JSON.parse(localStorage.getItem('skills')) || [];
+            skills.forEach((skill, index) => {
+                const li = document.createElement('li');
+                li.textContent = skill;
+                const removeBtn = document.createElement('button');
+                removeBtn.textContent = 'Remove';
+                removeBtn.addEventListener('click', () => {
+                    skills.splice(index, 1);
+                    localStorage.setItem('skills', JSON.stringify(skills));
+                    renderSkills();
+                });
+                li.appendChild(removeBtn);
+                skillList.appendChild(li);
+            });
+        }
+
+        // Projects Handling
+        const projectsForm = document.getElementById('projectsForm');
+        const projectNameInput = document.getElementById('projectName');
+        const projectDescriptionInput = document.getElementById('projectDescription');
+
+        projectsForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const project = {
+                name: projectNameInput.value,
+                description: projectDescriptionInput.value
+            };
+            let projects = JSON.parse(localStorage.getItem('projects')) || [];
+            projects.push(project);
+            localStorage.setItem('projects', JSON.stringify(projects));
+            alert('Project saved!');
+            projectsForm.reset();
+        });
+
+        // Contact Form Handling
+        const contactForm = document.getElementById('contactForm');
+        const contactNameInput = document.getElementById('contactName');
+        const contactEmailInput = document.getElementById('contactEmail');
+        const messageInput = document.getElementById('message');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const contact = {
+                name: contactNameInput.value,
+                email: contactEmailInput.value,
+                message: messageInput.value
+            };
+            // For demonstration, we'll save the contact message in localStorage
+            // In a real application, you would send this data to a server
+            let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+            contacts.push(contact);
+            localStorage.setItem('contacts', JSON.stringify(contacts));
+            alert('Message sent!');
+            contactForm.reset();
+        });
+
+        // Populate Forms with Saved Data
+        window.addEventListener('load', () => {
+            // Personal Information
+            const personalInfo = JSON.parse(localStorage.getItem('personalInfo'));
+            if (personalInfo) {
+                nameInput.value = personalInfo.name || '';
+                emailInput.value = personalInfo.email || '';
+                phoneInput.value = personalInfo.phone || '';
+                bioInput.value = personalInfo.bio || '';
+            }
+
+            // Education
+            const education = JSON.parse(localStorage.getItem('education'));
+            if (education) {
+                degreeInput.value = education.degree || '';
+                institutionInput.value = education.institution || '';
+                yearInput.value = education.year || '';
+            }
+
+            // Work Experience
+            const work = JSON.parse(localStorage.getItem('workExperience'));
+            if (work) {
+                jobTitleInput.value = work.jobTitle || '';
+                companyInput.value = work.company || '';
+                workYearInput.value = work.year || '';
+            }
+
+            // Skills
+            renderSkills();
+
+            // Projects
+            // Projects are handled in the Overview
+
+            // Contacts
+            // Contacts are stored but not displayed
+        });
+
+        // Populate Overview Section
+        function populateOverview() {
+            const overview = document.getElementById('overviewContent');
+            overview.innerHTML = '';
+
+            // Personal Information
+            const personalInfo = JSON.parse(localStorage.getItem('personalInfo'));
+            if (personalInfo) {
+                const personalDiv = document.createElement('div');
+                personalDiv.innerHTML = `<h3>Personal Information</h3>
+                                         <p><strong>Name:</strong> ${personalInfo.name}</p>
+                                         <p><strong>Email:</strong> ${personalInfo.email}</p>
+                                         <p><strong>Phone:</strong> ${personalInfo.phone}</p>
+                                         <p><strong>Bio:</strong> ${personalInfo.bio}</p>`;
+                overview.appendChild(personalDiv);
+            }
+
+            // Education
+            const education = JSON.parse(localStorage.getItem('education'));
+            if (education) {
+                const educationDiv = document.createElement('div');
+                educationDiv.innerHTML = `<h3>Education</h3>
+                                          <p><strong>Degree:</strong> ${education.degree}</p>
+                                          <p><strong>Institution:</strong> ${education.institution}</p>
+                                          <p><strong>Year:</strong> ${education.year}</p>`;
+                overview.appendChild(educationDiv);
+            }
+
+            // Work Experience
+            const work = JSON.parse(localStorage.getItem('workExperience'));
+            if (work) {
+                const workDiv = document.createElement('div');
+                workDiv.innerHTML = `<h3>Work Experience</h3>
+                                     <p><strong>Job Title:</strong> ${work.jobTitle}</p>
+                                     <p><strong>Company:</strong> ${work.company}</p>
+                                     <p><strong>Year:</strong> ${work.year}</p>`;
+                overview.appendChild(workDiv);
+            }
+
+            // Skills
+            const skills = JSON.parse(localStorage.getItem('skills')) || [];
+            if (skills.length > 0) {
+                const skillsDiv = document.createElement('div');
+                skillsDiv.innerHTML = `<h3>Skills</h3><ul>${skills.map(skill => `<li>${skill}</li>`).join('')}</ul>`;
+                overview.appendChild(skillsDiv);
+            }
+
+            // Projects
+            const projects = JSON.parse(localStorage.getItem('projects')) || [];
+            if (projects.length > 0) {
+                const projectsDiv = document.createElement('div');
+                projectsDiv.innerHTML = `<h3>Projects</h3>`;
+                projects.forEach(project => {
+                    projectsDiv.innerHTML += `<p><strong>${project.name}:</strong> ${project.description}</p>`;
+                });
+                overview.appendChild(projectsDiv);
+            }
+
+            // Contacts
+            const contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+            if (contacts.length > 0) {
+                const contactsDiv = document.createElement('div');
+                contactsDiv.innerHTML = `<h3>Contact Messages</h3>`;
+                contacts.forEach(contact => {
+                    contactsDiv.innerHTML += `<p><strong>Name:</strong> ${contact.name}<br>
+                                              <strong>Email:</strong> ${contact.email}<br>
+                                              <strong>Message:</strong> ${contact.message}</p>`;
+                });
+                overview.appendChild(contactsDiv);
+            }
+        }
+
+        // Download CV Functionality
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        downloadBtn.addEventListener('click', () => {
+            const personalInfo = JSON.parse(localStorage.getItem('personalInfo')) || {};
+            const education = JSON.parse(localStorage.getItem('education')) || {};
+            const work = JSON.parse(localStorage.getItem('workExperience')) || {};
+            const skills = JSON.parse(localStorage.getItem('skills')) || [];
+            const projects = JSON.parse(localStorage.getItem('projects')) || [];
+            const contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+
+            // Create HTML content for the CV
+            let cvContent = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <title>${personalInfo.name || 'My CV'}</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; color: #333; }
+                        h1, h2, h3 { color: #e74c3c; }
+                        .section { margin-bottom: 20px; }
+                        .section p { margin: 5px 0; }
+                        ul { list-style-type: disc; margin-left: 20px; }
+                        .contact-message { margin-bottom: 15px; }
+                    </style>
+                </head>
+                <body>
+                    <h1>${personalInfo.name || 'Your Name'}</h1>
+                    <p><strong>Email:</strong> ${personalInfo.email || 'your.email@example.com'}</p>
+                    <p><strong>Phone:</strong> ${personalInfo.phone || 'Your Phone Number'}</p>
+                    <p><strong>Bio:</strong> ${personalInfo.bio || 'A short bio about yourself.'}</p>
+
+                    <div class="section">
+                        <h2>Education</h2>
+                        <p><strong>Degree:</strong> ${education.degree || 'Your Degree'}</p>
+                        <p><strong>Institution:</strong> ${education.institution || 'Your Institution'}</p>
+                        <p><strong>Year:</strong> ${education.year || 'Your Graduation Year'}</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Work Experience</h2>
+                        <p><strong>Job Title:</strong> ${work.jobTitle || 'Your Job Title'}</p>
+                        <p><strong>Company:</strong> ${work.company || 'Your Company'}</p>
+                        <p><strong>Year:</strong> ${work.year || 'Your Employment Year'}</p>
+                    </div>
+
+                    <div class="section">
+                        <h2>Skills</h2>
+                        <ul>
+                            ${skills.map(skill => `<li>${skill}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="section">
+                        <h2>Projects</h2>
+                        ${projects.map(project => `
+                            <div>
+                                <h3>${project.name}</h3>
+                                <p>${project.description}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="section">
+                        <h2>Contact Messages</h2>
+                        ${contacts.map(contact => `
+                            <div class="contact-message">
+                                <p><strong>Name:</strong> ${contact.name}</p>
+                                <p><strong>Email:</strong> ${contact.email}</p>
+                                <p><strong>Message:</strong> ${contact.message}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </body>
+                </html>
+            `;
+
+            // Create a Blob from the HTML content
+            const blob = new Blob([cvContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+
+            // Create a temporary anchor element to trigger the download
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${personalInfo.name || 'My_CV'}.html`;
+            document.body.appendChild(a);
+            a.click();
+
+            // Clean up
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>
